@@ -1,0 +1,183 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+
+<title>无标题文档</title>
+<link rel="stylesheet" href="../css/login.css" />
+
+<script src="https://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="../js/mui.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+<script src="../js/md5.js"></script>
+<style>
+
+</style>
+</head>
+
+<body>
+<div id="login" class="login">
+<!-- 	<div class="welcome"><img src=""></div> -->
+	<div class="login-form">
+		<div class="aui-tips aui-margin-b-15" id="tips-1" style="padding: 0 0.75rem;margin-top: 0rem !important;
+    width: 100%;
+    z-index: 99;
+    height: 1.9rem;
+    line-height: 1.9rem;
+   	position: relative;
+    background-color: rgba(0,0,0,.6);
+    color: #ffffff;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+            justify-content: space-between;
+    -webkit-align-items: center;
+    		align-items: center;" v-show="istips">
+		    <i class="aui-iconfont aui-icon-info"></i>
+		    <div class="aui-tips-title" style="padding: 0 0.5rem;
+	font-size:1rem;
+    position: relative;
+    max-width: 100%;">{{istipsmsg}}</div>
+		    <i class="aui-iconfont aui-icon-close"></i>
+		</div>
+		
+		<div class="login-inp " style="margin-top: 4rem;"><label style="">推荐人</label><input type="text" v-model="recommender" placeholder=''  readonly></div>
+		<div class="login-inp "><label style="">手机号</label><input type="text" v-model="phone" placeholder=''><p v-show="isPhone"  style="color: #DD191B;">{{isPhoneMsg}}</p></div>
+		<div class="login-inp"><label>昵称</label><input type="text" v-model="nikename" placeholder=''></div>
+		<div class="login-inp "><label>验证码</label><input type="text" v-model="vc" placeholder='' style="width: 8rem;"><button style="border: none;background: inherit;color: #fff;" v-on:click="getCodes">获取验证码</button></div>
+		<div class="login-inp"><label>密码</label><input type="password" v-model="password" placeholder=""></div>
+		<div class="login-inp"><label style="margin-left: 1%;">确认密码</label><input type="password" v-model="passwords" placeholder=""></div>
+		<div class="login-inp" v-on:click="getCode" ><a>注册</a></div>
+	</div>
+</div>
+	
+<script>
+$("input").blur(function(){}) 
+
+function getQueryString(name) {//name为传入参数
+
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");     
+
+    var r = window.location.search.substr(1).match(reg);
+
+    if (r != null) return unescape(r[2]); return null;            
+
+}
+
+window.onload  = function(){
+	
+	app.recommender =	getQueryString("UserName")
+}
+
+
+var app = new Vue({
+		el: '#login',
+		data: {
+			recommender: "",
+			phone:"",
+			nikename:"",
+			vc:"",
+			password:"",
+			passwords:"",
+			data:{},
+			isPhone:false,
+			isPhoneMsg:"",
+			istips:false,
+			istipsmsg:"",
+		},
+		
+		watch:{
+			phone(val){
+				
+				if(app.phone.length!=11){
+					return;
+				}
+				mui.ajax('http://23.225.200.205:8081/auth/repeatName',{
+					data:{
+						"name":app.phone
+					},
+					dataType:'json',//服务器返回json格式数据
+					type:'post',//HTTP请求类型
+					timeout:10000,//超时时间设置为10秒；
+					success:function(data){
+						app.isPhone =  data.errorCode != 0;
+						app.isPhoneMsg = data.msg;
+					},
+					error:function(xhr,type,errorThrown){
+					}
+				});
+			}
+		},
+		methods:{
+			getCode:function(){
+				if(app.password != app.passwords){
+					return;
+				}
+				
+				$.ajax({
+					url:'http://23.225.200.205:8081/auth/register',
+					data:{
+					"refereeuser":app.recommender,
+					"username":app.phone,
+					"nickname":app.nikename,
+					"actCode": app.vc,
+					"pass":hex_md5(app.password),
+					"password":app.passwords
+					},
+					dataType:'json',//服务器返回json格式数据
+					type:'post',//HTTP请求类型
+					timeout:10000,//超时时间设置为10秒；
+					error:function(){
+						
+					},
+					success:function(data){
+						//数组
+						console.log(data)
+						if(data.errorCode==0) {
+							window.location.href="login.html";//注册成功返回首页
+						}else {
+							
+						}
+					},
+
+				});
+			},
+			getCodes:function(){
+				$.ajax({
+					url:'http://23.225.200.205:8081/auth/actionCode',
+					data:{
+						"mobile":app.phone
+					},
+					dataType:'json',//服务器返回json格式数据
+					type:'post',//HTTP请求类型
+					timeout:10000,//超时时间设置为10秒；
+					error:function(){
+						
+					},
+					success:function(data){
+						//数组
+						
+						if(data.errorCode==0) {
+							
+							app.istips = true;
+							app.istipsmsg = data.message;
+
+						}else {
+							
+						}
+					},
+			
+				});
+			},
+		}
+	  })
+
+</script>
+	
+
+</body>
+</html>

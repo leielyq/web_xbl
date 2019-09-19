@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+		<title>提现</title>
+		<link rel="stylesheet" type="text/css" href="../css/aui.css" />
+	</head>
+	<body>
+		<header class="aui-bar aui-bar-nav aui-bar-light">
+		    <a class="aui-pull-left aui-btn" href="balance.html">
+		        <span class="aui-iconfont aui-icon-left">返回</span>
+		    </a>
+		    <div class="aui-title"style="color: #000000;">提现</div>
+		</header>
+		<div style="background-color: white;width: 90%;height: 50%;margin-left: 5%;margin-top: 2%;">
+
+			<div class="aui-content aui-margin-b-15">
+				<ul class="aui-list aui-form-list">
+					
+					<li class="aui-list-item aui-list-item-middle">
+					     <div class="aui-list-item-media" style="width: 5rem;">
+					     选择银行：
+					     </div>
+					     <div class="aui-list-item-inner aui-list-item-arrow">
+							中国银行（8888）
+					     </div>
+					</li>
+					<li style="font-size: 1rem;margin-left: 5%;">提现金额：</li>
+					<li class="aui-list-item">
+						<div class="aui-list-item-inner" style="height: 4rem;">
+							<div class="aui-list-item-label">
+								<p style="font-size: 1.5rem;color: #000000;">￥</p>
+							</div>
+							<div class="aui-list-item-input" style="">
+								<input type="number" placeholder="提现金额为100的倍数" style="font-size: 1rem;">
+							</div>
+							
+						</div>
+						 
+					</li>
+					<span class="kyye">当前余额：25546.60元，<a href="javascript:;" id="getall">全部提现</a></span></br>
+					<span class="kyye">扣除手续费5% </span>
+					<div class="aui-content-padded">
+					    <div class="aui-btn aui-btn-block aui-btn-info" tapmode onclick="openDialog('input')">下一步</div>
+					</div>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>

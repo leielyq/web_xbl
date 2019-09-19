@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+		<link rel="stylesheet" type="text/css" href="../css/aui.css" />
+	</head>
+	<body>
+		<div id="app">
+			<header class="aui-bar aui-bar-nav" style="height: 3.5rem;">
+				<a class="aui-pull-left aui-btn" href="home.html">
+					<span class="aui-iconfont aui-icon-left" style="font-size: 2rem;margin-top: 0.5rem;"></span>
+				</a>
+				<div class="aui-title">
+					<p style="color: #FFFFFF;font-size: 2rem;margin-top: 0.5rem;">个人信息</p>
+				</div>
+			</header>
+			<div class="aui-content aui-margin-b-15">
+				<ul class="aui-list aui-list-in">
+					<div class="aui-content aui-margin-b-15" >
+						<ul class="aui-list aui-media-list">
+
+							<li class="aui-list-item aui-list-item-middle">
+								<div class="aui-media-list-item-inner">
+									<div class="aui-list-item-media" style="width: 6rem;margin-right: 1rem;">
+										<img v-bind:src="tou" class="aui-img-round aui-list-img-sm">
+									</div>
+									<div class="aui-list-item-inner aui-list-item-arrow">
+										<div class="aui-list-item-text">
+											<div class="aui-list-item-title aui-font-size-14">
+												<p style="font-size:2.5rem;margin-bottom: 0%;margin-top: 0%;color: #000000;">{{nikename}}</p>
+												
+											</div>
+											<div class="aui-list-item-right"></div>
+										</div>
+										<div class="aui-list-item-text">
+											<p style="font-size: 1.5rem;margin-bottom: 0%;margin-top: 0%;color: #CCCCCC;">姓名:{{username}}</p>
+										</div>
+									</div>
+									<div class="aui-list-item-media" style="border-radius:2rem;width: 6rem;margin-right: 3rem;border:3px solid #1976D2;text-align:center"v-on:click="toname">
+										<div style=" margin: 0 auto;"><p style="font-size:1.8rem;color: #1976D2;">编辑</p></div>
+									</div>
+								</div>
+							</li>
+
+						</ul>
+					</div>
+
+
+
+					<div style="height: 4rem;background-color: #FFFFFF;width: 100%;">
+						<div>
+							<p style="margin-left:1rem;font-size: 1.5rem;margin-top: 0.5rem;float: left;color: #000000;">我的收货地址</p>
+						</div>
+					</div>
+
+					<div style="height: 1rem;background-color: #EEEEEE;width: 100%;">
+					</div>
+
+					<div style="height: 120px;background-color: #FFFFFF;width: 100%;border-bottom: 1px solid #000000 ;" v-on:click="tomima">
+						<div>
+							<p style="margin-left:1rem;font-size: 1.5rem;margin-top: 1rem;float: left;color: #000000;">修改密码</p>
+						</div>
+					</div>
+
+					<div style="height: 120px;background-color: #FFFFFF;width: 100%;border-bottom: 1px solid #000000 ; ">
+						<div>
+							<p style="margin-left:1rem;font-size: 1.5rem;margin-top: 1rem;float: left;color: #000000;">联系方式</p>
+						</div>
+					</div>
+					
+						<div style="height: 120px;background-color: #FFFFFF;width: 100%;" v-on:click="tobank">
+						<div>
+							<p style="margin-left:1rem;font-size: 1.5rem;margin-top: 1rem;float: left;color: #000000;">银行信息</p>
+						</div>
+					</div>
+					
+
+					
+
+					<div style="height: 1rem;background-color: #EEEEEE;width: 100%;">
+					</div>
+
+					<div style="height: 4rem;background-color: #FFFFFF;width: 100%;text-align:center">
+						<p style="font-size:2rem;color: #000000;margin: 0 auto;margin-top: 1rem;">切换账户</p>
+					</div>
+
+					<div style="height: 1rem;background-color: #EEEEEE;width: 100%;">
+					</div>
+
+					<div style="height: 4rem;background-color: #FFFFFF;width: 100%;text-align:center">
+						<p style="font-size:2rem;color: #000000;margin: 0 auto;margin-top: 1rem;">退出登录</p>
+					</div>
+
+					<!-- <li class="aui-list-item">
+			            <div class="aui-list-item-inner aui-list-item-arrow">
+			                <div class="aui-list-item-title">
+								<p style="font-size:2rem;margin-bottom: 0%;margin-top: 0%;color: #000000;">我的收货地址</p>
+							</div>
+			            </div>
+			        </li>
+			        <li class="aui-list-item">
+			            <div class="aui-list-item-inner aui-list-item-arrow">
+			                <div class="aui-list-item-title">Item3</div>
+			            </div>
+			        </li> -->
+				</ul>
+			</div>
+		</div>
+		<script type="text/javascript" src="../js/mui.js"></script>
+		<script type="text/javascript" src="../js/jquery-3.4.0.js"></script>
+		<script type="text/javascript" src="../js/jquery.cookie.js"></script>
+		<script>
+			var name = $.cookie("userName")
+			var path = "http://23.225.200.205:8081"
+			var app = new Vue({
+
+				el: '#app',
+				data: {
+					tou: "../images/user.png",
+					nikename: "我的昵称",
+					username:"",
+				},
+				created: function() {
+					mui.ajax(path + '/user/getMine', {
+						data: {
+							"uid": parseInt(name),
+						},
+						dataType: 'json', //服务器返回json格式数据
+						type: 'post', //HTTP请求类型
+						timeout: 10000, //超时时间设置为10秒；
+						success: function(res) {
+							//数组
+							console.log(res.data);
+							if (res.errorCode == 0) {
+								console.log(res.data);
+								app.tou = res.data.headpath;
+								app.nikename = res.data.nickname;
+								app.username=res.data.realname;
+								
+								//登录成功返回首页
+							} else {
+								app.isPhoneMsg = res.qwer;
+
+							}
+						},
+						error: function(xhr, type, errorThrown) {
+
+						}
+					});
+				},
+				methods: {
+					toname:function(){
+						window.location.href = "changeimg.html";
+					},
+					tomima:function(){
+						window.location.href = "changePassword.html";
+					},
+					tobank:function(){
+						window.location.href = "bank.html";
+					}
+				}
+
+
+				
+			})
+		</script>
+	</body>
+</html>

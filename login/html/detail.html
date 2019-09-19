@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" />
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+		<link rel="stylesheet" type="text/css" href="../css/aui-slide.css" />
+		<link rel="stylesheet" type="text/css" href="../css/aui.css" />
+		<meta charset="utf-8">
+		<title>详情</title>
+	</head>
+	<body>
+		<header class="aui-bar aui-bar-nav" style="position: fixed;background-color: rgba(0,0,0,0.3);">
+		    <a class="aui-pull-left aui-btn"  onClick="javascript :history.back(-1);">
+		        <span class="aui-iconfont aui-icon-left"></span>
+		    </a>
+		    <div class="aui-title">详情</div>
+		</header>
+		
+		<footer class="aui-bar aui-bar-tab" id="footer">
+		    <div class="aui-bar-tab-item aui-active" tapmode>
+		       <i class="aui-iconfont aui-icon-star"></i>
+		       <div class="aui-bar-tab-label">收藏</div>
+		    </div>
+			<div class="aui-bar-tab-item" tapmode>
+			   <i class="aui-iconfont aui-icon-star"></i>
+			   <div class="aui-bar-tab-label">购物车</div>
+			</div>
+		    <div class="aui-bar-tab-item" tapmode>
+		         <a href="buy_item.html"><div class="aui-btn aui-btn-warning">立即购买</div></a>
+		    </div>
+		   
+		</footer>
+		
+		
+		<div class="aui-content" style="margin-bottom: 2.5rem;">
+			<div id="aui-slide3">
+			    <div class="aui-slide-wrap" >
+			        <div class="aui-slide-node bg-dark">
+			            <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3023433667,1852354792&fm=26&gp=0.jpg" />
+			        </div>
+			        <div class="aui-slide-node bg-dark">
+			            <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3023433667,1852354792&fm=26&gp=0.jpg" />
+			        </div>
+			        <div class="aui-slide-node bg-dark">
+			            <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3023433667,1852354792&fm=26&gp=0.jpg" />
+			        </div>
+			    </div>
+			    <div class="aui-slide-page-wrap"><!--分页容器--></div>
+			</div>
+			 <ul class="aui-list aui-form-list">
+				 <li class="aui-list-header" ><div style="margin: auto;">- 商品介绍 -</div></li>
+				 <li class="aui-list">
+				     <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3023433667,1852354792&fm=26&gp=0.jpg" />
+				 </li>
+				 <li class="aui-list">
+				     <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3023433667,1852354792&fm=26&gp=0.jpg" />
+				 </li>
+				 
+			        <li class="aui-list-header">商品详情</li>
+			        <li class="aui-list-item">
+			            <div class="aui-list-item-inner">
+			                <div class="aui-list-item-label">
+			                    规格
+			                </div>
+			                <div class="aui-list-item-input">
+			                   <div class="aui-list-item-label">
+			                       规格
+			                   </div>
+			                </div>
+			            </div>
+			        </li>
+					
+					<li class="aui-list-header" style="text-align: center;">购买说明</li>
+					<li class="aui-list-item">
+					    <div class="aui-list-item-inner">
+					        <div class="aui-list-item-label">
+					            必读
+					        </div>
+					        <div class="aui-list-item-input">
+					              每个产品从购买时间开始5个阶段（后台可调）150天到计时，30天为一个阶段
+					                    每30天结算10%收益到余额，5个阶段结束，结算5次收益 该产品结算到代领取
+					        </div>
+					    </div>
+					</li>
+					</ul>
+			
+			
+		</div>
+	
+	</body>
+	
+	<script type="text/javascript" src="../js/aui-slide.js"></script>
+	<script  type="text/javascript">
+	
+		 var slide3 = new auiSlide({
+		        container:document.getElementById("aui-slide3"),
+		        // "width":300,
+		        "height":240,
+		        "speed":500,
+		        "autoPlay": 3000, //自动播放
+		        "loop":true,
+		        "pageShow":true,
+		        "pageStyle":'line',
+		        'dotPosition':'center'
+		    })
+			
+
+	</script>
+</html>

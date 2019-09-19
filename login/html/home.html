@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" />
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+		<link rel="stylesheet" type="text/css" href="../css/aui-slide.css" />
+		<link rel="stylesheet" type="text/css" href="../css/aui.css" />
+		<link rel="stylesheet" type="text/css" href="../css/home.css" />
+	</head>
+	<body>
+		<script type="text/javascript" src="../js/jquery.min.js"></script>
+		<script type="text/javascript" src="../js/slider.js"></script>
+		<script type="text/javascript">
+			function b() {
+				t = parseInt(x.css('top'));
+				y.css('top', '20px');
+				x.animate({
+					top: t - 20 + 'px'
+				}, 'slow');
+				if (Math.abs(t) == h - 20) {
+					y.animate({
+						top: '0px'
+					}, 'slow');
+					z = x;
+					x = y;
+					y = z;
+				}
+				setTimeout(b, 3000);
+			}
+			$(document).ready(function() {
+				$('.swap').html($('.news_li').html());
+				x = $('.news_li');
+				y = $('.swap');
+				h = $('.news_li li').length * 20;
+				setTimeout(b, 3000);
+			})
+		</script>
+		<div id="app">
+			<div v-show="isone">
+
+				<iframe src="index.html" style="width: 100%;height:37rem"></iframe>
+			</div>
+			<div v-show="istwo" style="background-color: #FFFFFF;height: 80%;">
+				<div id="aui-slide2" >
+					<div class="aui-slide-wrap">
+						<div class="aui-slide-node bg-dark">
+							<img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3023433667,1852354792&fm=26&gp=0.jpg" />
+						</div>
+						<div class="aui-slide-node bg-dark">
+							<img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=724318410,2275395256&fm=15&gp=0.jpg" />
+						</div>
+
+					</div>
+					<div class="aui-slide-page-wrap">
+						<!--分页容器-->
+					</div>
+				</div>
+				<div class="aui-flex aui-flex-color" style="margin-top: 0.5rem;">
+					<div class="aui-news-sml">
+						<img src="../images/hot.png" alt="">
+					</div>
+					<div class="aui-flex-box">
+						<div class="box">
+							<div class="t_news">
+								<ul class="news_li">
+									<li>
+										<a href="javascript:return false;">消息滚动1111111111</a>
+									</li>
+									<li>
+										<a href="javascript:return false;">消息滚动222222222</a>
+									</li>
+				
+								</ul>
+								<ul class="swap"></ul>
+							</div>
+						</div>
+					</div>
+					<div class="aui-arrow"></div>
+				</div>
+				<div class="aui-title aui-title-one">
+					<h1>农场</h1>
+				</div>
+				<div class="aui-list-theme-box">
+					<a href="detail.html" class="aui-list-item">
+						<div class="aui-list-theme-img">
+							<img src="https://img.alicdn.com/imgextra/i2/544250156/O1CN0159w6oZ1D1ULXPpT7E_!!0-saturn_solar.jpg_270x270.jpg" alt="">
+						</div>
+						<div class="aui-list-theme-message">
+							<h3 class="aui-list-theme-title">领养 散养土鸡</h3>
+							<span>150天后，连本带利150元出局</span>
+							
+							<h4>￥100</h4>
+							<i>零售价：150</i>
+						</div>
+					</a>
+					<a href="detail.html" class="aui-list-item">
+						<div class="aui-list-theme-img">
+							<img src="https://g-search3.alicdn.com/img/bao/uploaded/i4/i3/549262926/TB2t9VjXUyfF1Jjy0FbXXXSupXa_!!549262926.jpg_250x250.jpg_.webp" alt="">
+						</div>
+						<div class="aui-list-theme-message">
+							<h3 class="aui-list-theme-title">领养 二代天鹅</h3>
+							<span>150天后，连本带利750元出局</span>
+							
+							<h4>￥500</h4>
+							<i>零售价：780</i>
+						</div>
+					</a>
+	
+				</div>
+				
+				<div style="height:5rem;"></div>
+			</div>
+			<div v-show="isthree"></div>
+			<div v-show="isfour">
+				<div class="aui-card-list">
+
+					<div style="background-color: #03A9F4;width: 100%;height: 9rem;position:relative"></div>
+					<div style="background-color: #FFFFFF;width: 100%;height: 5rem;">
+						<section class="aui-grid aui-margin-b-15" style="margin-top: 20%;">
+							<div class="aui-row">
+								<a href="http://127.0.0.1:8848/wallet/html/wallet.html?name=123">
+									<div class="aui-col-xs-3">
+									<i class="aui-iconfont aui-icon-mail" style="font-size: 1.5rem;"></i>
+									<div class="aui-grid-label" style="font-size: 1rem;">钱包</div>
+								</div>
+								</a>
+								
+								<div class="aui-col-xs-3">
+									<i class="aui-iconfont aui-icon-paper" style="font-size: 1.5rem;"></i>
+									<div class="aui-grid-label" style="font-size: 1rem;">订单</div>
+								</div>
+								<div class="aui-col-xs-3">
+									<i class="aui-iconfont aui-icon-like" style="font-size: 1.5rem;"></i>
+									<div class="aui-grid-label" style="font-size: 1rem;">粉丝</div>
+								</div>
+								<a href="qrcode.html"><div class="aui-col-xs-3">
+									<i class="aui-iconfont aui-icon-map" style="font-size: 1.5rem;"></i>
+									<div class="aui-grid-label" style="font-size: 1rem;">二维码</div>
+								</div></a>
+							</div>
+						</section>
+					</div>
+					<div class="aui-card-list-user-avatar" style="box-shadow: darkgrey 10px 20px 20px -10px ;border-radius:20px 20px 20px 20px;text-align:center;margin-top:15%;margin-left:5%; width: 90%;;height: 9.5rem;background-color: #ffffff;position: absolute;top: 10px;">
+						<img v-bind:src="tou" class="aui-img-round" style="position: absolute;top: -20%;left:38%;height: 4.5rem;width: 25%;margin: 0 auto;" />
+						<div style="margin: 0 auto;">
+							<p style="font-size: 1rem;margin-bottom: 2%;margin-top: 20%;color: #000000;">{{nikename}}</p>
+						</div>
+						<div style="margin: 0 auto;">
+							<p style="font-size: 1rem;margin-bottom: 3%;">我的级别：{{level}}</p>
+						</div>
+						<a href="login.html">
+							<div style="margin: 0 auto;border-radius:30px;border:1px solid #0075F0;width: 25%;" v-show="islogin" >
+							<p style="font-size: 0.8rem;color: #0075F0;" >立即登录</p>
+						</div>
+						</a>
+						
+					</div>
+					<div style="height: 0.5rem;background-color: #EEEEEE;width: 100%;">
+					</div>
+					<a href="detail.html">
+					<div style="height: 2.5rem;background-color: #FFFFFF;width: 100%;border-bottom: 1px solid #000000 ;">
+						<img style="margin-left:0.8rem;margin-top: 0.8rem;float: left;height: 1rem;" src="../images/icon-001.png" />
+						<div>
+							<p style="margin-left:1rem;font-size: 1rem;margin-top: 0.6rem;float: left;color: #000000;">我的消费</p>
+						</div>
+					</div>
+					</a>
+					<div style="height: 2.5rem;background-color: #FFFFFF;width: 100%;border-bottom: 1px solid #000000 ;">
+						<img style="margin-left:0.8rem;margin-top: 0.8rem;float: left;height: 1rem;" src="../images/icon-002.png" />
+						<div>
+							<p style="margin-left:1rem;font-size: 1rem;margin-top: 0.6rem;float: left;color: #000000;">新闻资讯</p>
+						</div>
+					</div>
+					<div style="height: 2.5rem;background-color: #FFFFFF;width: 100%;" onclick="openDialog('text')">
+						<img style="margin-left:0.8rem;margin-top: 0.8rem;float: left;height: 1rem;" src="../images/icon-003.png" />
+						<div>
+							<p style="margin-left:1rem;font-size: 1rem;margin-top: 0.6rem;float: left;color: #000000;">联系客服</p>
+						</div>
+					</div>
+					<div style="height: 0.5rem;background-color: #EEEEEE;width: 100%;">
+					</div>
+					<div style="height: 2.5rem;background-color: #FFFFFF;width: 100%;" v-on:click="ongo">
+						<img style="margin-left:0.8rem;margin-top: 0.8rem;float: left;height: 1rem;" src="../images/icon-004.png" />
+						<div>
+							<p style="margin-left:1rem;font-size: 1rem;margin-top: 0.6rem;float: left;color: #000000;">资料信息</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<footer class="aui-bar aui-bar-tab" id="footer" style="height: 10%;">
+			<div class="aui-bar-tab-item aui-active" tapmode style="">
+				<i class="aui-iconfont aui-icon-home" style="font-size: 1rem;"></i>
+				<div class="aui-bar-tab-label" style="font-size: 0.8rem;" >首页</div>
+			</div>
+			<div class="aui-bar-tab-item" tapmode>
+				<i class="aui-iconfont aui-icon-star" style="font-size: 1rem;"></i>
+				<div class="aui-bar-tab-label" style="font-size: 0.8rem;">农场</div>
+			</div>
+			<div class="aui-bar-tab-item" tapmode>
+				<i class="aui-iconfont aui-icon-cart" style="font-size: 1rem;"></i>
+				<div class="aui-bar-tab-label" style="font-size: 0.8rem;">购物车</div>
+			</div>
+			<div class="aui-bar-tab-item" tapmode>
+				<div class="aui-dot" style="font-size: 2rem;"></div>
+				<i class="aui-iconfont aui-icon-my" style="font-size: 1rem;"></i>
+				<div class="aui-bar-tab-label" style="font-size: 0.8rem;">我的</div>
+			</div>
+		</footer>
+		<script type="text/javascript" src="../js/aui-tab.js"></script>
+		<script type="text/javascript" src="../js/aui-slide.js"></script>
+		<script type="text/javascript" src="../js/mui.js"></script>
+		<script type="text/javascript" src="../js/jquery-3.4.0.js"></script>
+		<script type="text/javascript" src="../js/jquery.cookie.js"></script>
+		<script type="text/javascript">
+			var path = "http://23.225.200.205:8081"
+			var name = $.cookie("userName")
+			var div = document.getElementById('aui-slide2');
+			  //获取div的width
+			  var display = window.getComputedStyle(div,null).display;
+			 
+			  //修改div的width
+			 
+			var app = new Vue({
+				el: '#app',
+				data: {
+					tou:"../images/user.png",
+					level: "vip",
+					nikename:"我的昵称",
+					isone: false,
+					istwo: true,
+					isthree: false,
+					isfour: false,
+					islogin:false,
+				},
+				
+				created: function(){
+					
+					mui.ajax(path+'/user/getMine',{
+						data: {
+							"uid": parseInt(name),
+						},
+						dataType: 'json', //服务器返回json格式数据
+						type: 'post', //HTTP请求类型
+						timeout: 10000, //超时时间设置为10秒；
+						success: function(res) {
+							//数组
+							if (res.errorCode == 0) {
+								// $.cookie("tou",res.data.id, { expires: 365, path: '/' });
+								// $.cookie("nikename",res.data.id, { expires: 365, path: '/' });
+								app.tou =res.data.headpath;
+								app.level = res.data.isVip;
+								app.nikename =res.data.nickname;
+								app.islogin =false;
+								app.istwo=false;
+								 //
+							} else {
+								app.isPhoneMsg = res.qwer;
+					
+							}
+						},
+						error: function(xhr, type, errorThrown) {
+					
+						}
+					});
+				},
+				methods:{
+					ongo:function(){
+						window.location.href = "mydata.html";
+					}
+					
+				}
+			});
+			var tab = new auiTab({
+				element: document.getElementById("footer"),
+				index: 2,
+				repeatClick: false
+			}, function(ret) {
+				if (ret.index == 1) {
+					app.isone = true;
+					app.istwo = false;
+					app.isthree = false;
+					app.isfour = false;
+				}
+				if (ret.index == 2) {
+					
+					app.isone = false;
+					app.istwo = true;
+					app.isthree = false;
+					app.isfour = false;
+				}
+				if (ret.index == 3) {
+					app.isone = false;
+					app.istwo = false;
+					app.isthree = true;
+					app.isfour = false;
+				}
+				if (ret.index == 4) {
+					app.isone = false;
+					app.istwo = false;
+					app.isthree = false;
+					app.isfour = true;
+				}
+			});
+
+			var slide2 = new auiSlide({
+				container: document.getElementById("aui-slide2"),
+				// "width":300,
+				"height": 200,
+				"speed": 500,
+				"autoPlay": 3000, //自动播放
+				"loop": true,
+				"pageShow": true,
+				"pageStyle": 'dot',
+				'dotPosition': 'center'
+			})
+		</script>
+		<script type="text/javascript" src="../js/aui-dialog.js" ></script>
+		<script type="text/javascript">
+		    var dialog = new auiDialog({})
+		    function openDialog(type){
+		        switch (type) {
+		            case "text":
+		                dialog.alert({
+		                    title:"客服电话：18888888888",
+		                    msg:'客服微信：18888888888',
+		                    buttons:['取消','确定']
+		                },function(ret){
+		                    console.log(ret)
+		                })
+		                break;
+		            default:
+		                break;
+		
+		        }
+		    }
+		</script>
+	</body>
+</html>

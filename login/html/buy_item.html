@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" />
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+		<link rel="stylesheet" type="text/css" href="../css/aui-slide.css" />
+		<link rel="stylesheet" type="text/css" href="../css/aui.css" />
+		<meta charset="utf-8">
+		<title>下单</title>
+	</head>
+	<body>
+
+		<header class="aui-bar aui-bar-nav" style="position: fixed;">
+			<a class="aui-pull-left aui-btn" onClick="javascript :history.back(-1);">
+				<span class="aui-iconfont aui-icon-left"></span>
+			</a>
+			<div class="aui-title">订单详情</div>
+		</header>
+		
+		<footer class="aui-bar aui-bar-tab" id="footer">
+		    <div class="aui-bar-tab-item" tapmode>
+		       <a href="pay_proof.html"> <div class="aui-btn aui-btn-warning">去支付</div></a> 
+		    </div>
+		</footer>
+		<div class="aui-content" style="margin-top: 2rem;margin-bottom: 2.5rem;">
+
+			<ul class="aui-list aui-form-list">
+				<li class="aui-list-header">
+					<div style="margin: auto;">- 商品信息 -</div>
+				</li>
+
+				<li class="aui-list-item">
+					<div class="aui-list-item-inner">
+						<div class="aui-list-item-label">
+							规格
+						</div>
+						<div class="aui-list-item-input">
+							<div class="aui-list-item-label">
+								规格
+							</div>
+						</div>
+					</div>
+				</li>
+
+				<li class="aui-list-header" style="text-align: center;">购买说明</li>
+				<li class="aui-list-item">
+					<div class="aui-list-item-inner">
+						<div class="aui-list-item-label">
+							必读
+						</div>
+						<div class="aui-list-item-input">
+							每个产品从购买时间开始5个阶段（后台可调）150天到计时，30天为一个阶段
+							每30天结算10%收益到余额，5个阶段结束，结算5次收益 该产品结算到代领取
+						</div>
+					</div>
+				</li>
+			</ul>
+
+		</div>
+
+	</body>
+</html>
